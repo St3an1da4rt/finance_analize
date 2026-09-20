@@ -65,6 +65,10 @@ pytest
 
 **Адрес сервера сейчас зашит в коде** (ngrok-URL) в `AddOperationViewModel.swift` и `AnalyticsViewModel.swift`. Чтобы работать со своим бэкендом, замените его на свой адрес — например, на туннель ngrok к `localhost:8000` или на IP машины в локальной сети.
 
+## Дизайн
+
+Макеты интерфейса — в [Figma](https://www.figma.com/design/m80Tn4xCPwAcIc9EFaFXlc/%D1%85%D0%B0%D0%BA%D1%82%D0%BE%D0%BD-%D0%BB%D0%BE%D0%BB?node-id=0-1).
+
 ## Разработка со спецификациями
 
 Изменения API описываются через [OpenSpec](https://github.com/Fission-AI/OpenSpec): см. `backend/openspec/`. В Claude Code доступны команды `/opsx:propose`, `/opsx:apply`, `/opsx:explore`, `/opsx:archive`, `/opsx:sync`, `/opsx:update`.
