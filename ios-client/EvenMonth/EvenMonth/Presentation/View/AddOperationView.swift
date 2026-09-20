@@ -20,7 +20,6 @@ struct AddOperationView: View {
                 .ignoresSafeArea()
 
             VStack(spacing: 16) {
-                // Фото
                 PhotosPicker(selection: $item, matching: .images) {
                     VStack(spacing: 12) {
                         Image(systemName: "camera")
@@ -52,12 +51,10 @@ struct AddOperationView: View {
                     .font(.system(size: 15, weight: .medium))
                     .padding(.vertical, 4)
 
-                // Голосовой ввод
                 Button {
                     //
                 } label: {
                     VStack(spacing: 16) {
-                        // Стилизованная звуковая волна
                         HStack(spacing: 10) {
                             waveBar(height: 32, delay: 0.0)
                             waveBar(height: 52, delay: 0.15)
@@ -87,40 +84,6 @@ struct AddOperationView: View {
             .fill(Color.white)
             .frame(width: 12, height: height)
     }
-
-        
-        
-//        VStack {
-//            Spacer()
-//            if let image {
-//                Image(uiImage: image)
-//                    .resizable()
-//                    .scaledToFit()
-//            }
-//            
-//            PhotosPicker(selection: $item, matching: .images) {
-//                Label("Select Photo", systemImage: "photo")
-//            }
-//            
-//            Spacer()
-//            Button {
-//                if let image {
-//                    viewModel.upload(image: image)
-//                }
-//                coordinator.navigate(to: .home)
-//            } label: {
-//                Text("Готово")
-//            }
-//        }
-//        .onChange(of: item) { _, newItem in
-//            Task {
-//                if let data = try? await newItem?.loadTransferable(type: Data.self),
-//                   let uiImage = UIImage(data: data) {
-//                    image = uiImage
-//                }
-//            }
-//        }
-//    }
 }
 
 #Preview {
