@@ -10,12 +10,10 @@ import SwiftUI
 @main
 struct EvenMonthApp: App {
     @StateObject private var coordinator = AppCoordinator()
-    @StateObject private var appState = AppState()
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: $coordinator.path) {
-                RootView()
-                    .environmentObject(appState)
+                MainTabBar()
                     .navigationDestination(for: AppRoute.self) { route in
                         switch route {
                         case .addOperation:

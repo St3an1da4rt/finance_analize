@@ -8,13 +8,11 @@
 import SwiftUI
 import Combine
 
-// MARK: - Маршруты приложения
 enum AppRoute: Hashable {
     case addOperation
     case analytics
 }
 
-// MARK: - Координатор навигации
 final class AppCoordinator: ObservableObject {
     @Published var path = NavigationPath()
 
