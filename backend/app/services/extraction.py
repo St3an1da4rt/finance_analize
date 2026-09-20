@@ -7,6 +7,7 @@ from pydantic import BaseModel, Field
 
 from app import config
 from app.models import Category
+from app.services.openai_client import get_client
 
 MIME_BY_EXT = {ext: mime for mime, ext in config.ALLOWED_IMAGE_TYPES.items()}
 
@@ -62,10 +63,7 @@ def extract_operation(image_path: Path, client: OpenAI | None = None) -> Extract
     """Ask OpenAI to read an operation record from an image file."""
     mime = MIME_BY_EXT[image_path.suffix.lower()]
     data = base64.b64encode(image_path.read_bytes()).decode()
-    if client is None:
-        if not config.OPENAI_TOKEN:
-            raise RuntimeError("OPENAI_TOKEN is not set; add it to .env")
-        client = OpenAI(api_key=config.OPENAI_TOKEN)
+    client = get_client(client)
 
     completion = client.chat.completions.parse(
         model=config.OPENAI_MODEL,

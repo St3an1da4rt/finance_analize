@@ -51,11 +51,13 @@ def fake_queue(monkeypatch):
     """Uploads only record the job; tests run it explicitly via process_operation."""
     q = FakeQueue()
     monkeypatch.setattr("app.routes.images.extraction_queue", q)
+    monkeypatch.setattr("app.routes.audio.extraction_queue", q)
     return q
 
 
 @pytest.fixture(autouse=True)
 def fake_extraction(monkeypatch):
-    """Never call OpenAI from tests; individual tests may re-patch this."""
+    """Never call OpenAI from tests; individual tests may re-patch these."""
     result = ExtractedOperation(category=None, amount=None, description=None)
     monkeypatch.setattr("app.services.queue.extract_operation", lambda path: result)
+    monkeypatch.setattr("app.services.queue.extract_audio_operations", lambda path: [result])
