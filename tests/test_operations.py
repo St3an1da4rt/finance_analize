@@ -1,7 +1,7 @@
 from app.models import Category, Operation, OperationSource
 
 
-def seed(session_factory, n, category=Category.uncategorized):
+def seed(session_factory, n, category=None):
     with session_factory() as db:
         db.add_all(
             Operation(source=OperationSource.image, file_path=f"{i}.jpg", category=category)

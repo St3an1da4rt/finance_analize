@@ -19,7 +19,7 @@ def test_upload_success(client, case):
     assert r.status_code == 201
     body = r.json()
     assert body["status"] == "pending"
-    assert body["category"] == "uncategorized"
+    assert body["category"] is None
     assert len(list(config.UPLOAD_DIR.iterdir())) == 1
 
 

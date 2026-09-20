@@ -18,3 +18,6 @@ ALLOWED_AUDIO_TYPES = {
     "audio/mp4": ".m4a",
     "audio/wav": ".wav",
 }
+
+OPENAI_TOKEN = os.getenv("OPENAI_TOKEN")
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")

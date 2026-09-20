@@ -17,6 +17,7 @@ services:
 
   app:
     build: .
+    env_file: .env
     environment:
       DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-finance}:${POSTGRES_PASSWORD:-finance}@db:5432/${POSTGRES_DB:-finance}
       UPLOAD_DIR: /data/uploads
