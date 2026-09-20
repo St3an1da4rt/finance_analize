@@ -20,6 +20,9 @@ struct AddOperationView: View {
                 .ignoresSafeArea()
 
             VStack(spacing: 16) {
+                Text("Расскажите о своих тратах")
+                    .foregroundStyle(.white)
+                    .font(.system(size: 24)).bold()
                 PhotosPicker(selection: $item, matching: .images) {
                     VStack(spacing: 12) {
                         Image(systemName: "camera")
